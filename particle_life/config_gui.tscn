@@ -1,0 +1,127 @@
+[gd_scene load_steps=2 format=3 uid="uid://bxb0kejnyt5sy"]
+
+[ext_resource type="Script" uid="uid://bxhfhx4g50eni" path="res://config_gui.gd" id="1_vs3un"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vs3un")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 596.0
+offset_bottom = 240.0
+
+[node name="drag" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/drag"]
+layout_mode = 2
+text = "drag
+"
+
+[node name="HSlider" type="HSlider" parent="VBoxContainer/drag"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+max_value = 0.2
+step = 0.01
+
+[node name="force" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/force"]
+layout_mode = 2
+text = "force
+"
+
+[node name="HSlider" type="HSlider" parent="VBoxContainer/force"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+max_value = 3.0
+step = 0.1
+
+[node name="force_dist" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/force_dist"]
+layout_mode = 2
+text = "force distance
+"
+
+[node name="HSlider" type="HSlider" parent="VBoxContainer/force_dist"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+max_value = 300.0
+
+[node name="rep_force" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/rep_force"]
+layout_mode = 2
+text = "rep force
+"
+
+[node name="HSlider" type="HSlider" parent="VBoxContainer/rep_force"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+max_value = 10.0
+step = 0.1
+
+[node name="rep_force_dist" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/rep_force_dist"]
+layout_mode = 2
+text = "rep force distance
+"
+
+[node name="HSlider" type="HSlider" parent="VBoxContainer/rep_force_dist"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+max_value = 50.0
+
+[node name="speed" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/speed"]
+layout_mode = 2
+text = "speed
+"
+
+[node name="HSlider" type="HSlider" parent="VBoxContainer/speed"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+max_value = 10.0
+value = 1.0
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "randomise"
+
+[node name="GridContainer" type="GridContainer" parent="VBoxContainer"]
+layout_mode = 2
+columns = 3
+
+[node name="Button2" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "update"
+
+[connection signal="drag_ended" from="VBoxContainer/drag/HSlider" to="." method="_on_h_slider_drag_ended"]
+[connection signal="value_changed" from="VBoxContainer/drag/HSlider" to="." method="_on_h_slider_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/force/HSlider" to="." method="force_slider_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/force_dist/HSlider" to="." method="force_dist"]
+[connection signal="value_changed" from="VBoxContainer/rep_force/HSlider" to="." method="rep_force_changed"]
+[connection signal="value_changed" from="VBoxContainer/rep_force_dist/HSlider" to="." method="rep_force_dist"]
+[connection signal="value_changed" from="VBoxContainer/speed/HSlider" to="." method="speed"]
+[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button2" to="." method="_on_button_2_pressed"]

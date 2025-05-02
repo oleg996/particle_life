@@ -1,0 +1,54 @@
+[gd_scene load_steps=2 format=3 uid="uid://dx60o03d2o02q"]
+
+[ext_resource type="Script" uid="uid://p6vge2lqjfq" path="res://confing.gd" id="1_0tv33"]
+
+[node name="Confing" type="Node2D"]
+script = ExtResource("1_0tv33")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_left = 313.0
+offset_top = 139.0
+offset_right = 653.0
+offset_bottom = 327.0
+
+[node name="particle_amount" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/particle_amount"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Particle amount:"
+
+[node name="OptionButton" type="OptionButton" parent="VBoxContainer/particle_amount"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="world size" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/world size"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "World size:"
+
+[node name="OptionButton" type="OptionButton" parent="VBoxContainer/world size"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="particle_types" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/particle_types"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Particle types:"
+
+[node name="OptionButton" type="OptionButton" parent="VBoxContainer/particle_types"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "START"
+
+[connection signal="pressed" from="VBoxContainer/Button" to="." method="start_button"]

@@ -1,0 +1,31 @@
+[gd_scene load_steps=7 format=3 uid="uid://ba1yw5eoylfmw"]
+
+[ext_resource type="Script" uid="uid://d3usg2daeg728" path="res://particle_sim.gd" id="1_h2yge"]
+[ext_resource type="Texture2D" uid="uid://qxg5uilmhd4b" path="res://particles/untitled.png" id="2_1bvp3"]
+[ext_resource type="Shader" uid="uid://bcv0u2ragte5n" path="res://particles/main.gdshader" id="3_lquwl"]
+[ext_resource type="PackedScene" uid="uid://bxb0kejnyt5sy" path="res://config_gui.tscn" id="4_1bvp3"]
+[ext_resource type="Script" uid="uid://m2taeindw12s" path="res://camera_contol.gd" id="4_lquwl"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7mycd"]
+shader = ExtResource("3_lquwl")
+shader_parameter/count = 0
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_h2yge")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+texture = ExtResource("2_1bvp3")
+process_material = SubResource("ShaderMaterial_7mycd")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(574, 320)
+script = ExtResource("4_lquwl")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" parent="CanvasLayer" node_paths=PackedStringArray("sim") instance=ExtResource("4_1bvp3")]
+offset_left = -2.0
+offset_top = -4.0
+offset_right = -2.0
+offset_bottom = -4.0
+sim = NodePath("../..")
